@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sharedspace Minimal Setup</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+    
+    <!-- A-Frame libraries -->
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/delapuente/aframe-sharedspace-component/master/dist/aframe-sharedspace-component.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+      <a-entity sharedspace="hold: true; audio: true" avatars>
+        <a-entity environment="preset:forest"></a-entity>
+      </a-entity>
+    </a-scene>
+    <template>
+        <a-entity>
+          <a-sphere radius="0.1" color="#ffffff"></a-sphere>
+          <a-sphere position="0.05 0.03 -0.08" radius="0.02" segments-width="8" segments-height="8" color="#000000"></a-sphere>
+          <a-sphere position="-0.05 0.03 -0.08" radius="0.02" segments-width="8" segments-height="8" color="#000000"></a-sphere>
+          <a-sphere class="themable" position="0 -0.07 -0.1" scale="1 1 0.5" segments-width="4" segments-height="4" radius="0.02" color="#11fd3e"></a-sphere>
+          <a-cone class="themable" position="0.03 -0.07 -0.1" rotation="0 0 90" scale="1 1 0.5" segments-radial="8" segments-height="1" height="0.03" radius-bottom="0.03"  color="#1cff3c"></a-cone>
+          <a-cone class="themable" position="-0.03 -0.07 -0.1" rotation="0 0 -90" scale="1 1 0.5" segments-radial="8" segments-height="1" height="0.03" radius-bottom="0.03"  color="#1cff3c"></a-cone>
+        </a-entity>
+      </template>
+    <script>
+        var scene = document.querySelector('a-scene');
+            
+        (function start() {
+          if (!scene.hasLoaded) {
+            scene.addEventListener('loaded', start);
+            return;
+          }
+              
+          var prefix = window.location.host.split('.')[0] + '-';
+        var currentUrl = new URL(window.location);
+        var roomName = currentUrl.search.substr(1);
+
+        if (!roomName) {
+            roomName = 'hi-gabe';
+            currentUrl.search = roomName;
+            history.pushState({}, '', currentUrl.href);
+        }
+                
+        var room = document.querySelector('[sharedspace]');
+        room.addEventListener('avataradded', function onAdded(evt) {
+            
+        var avatar = evt.detail.avatar;
+        if (!avatar.hasLoaded) {
+            avatar.addEventListener('loaded', onAdded.bind(null, evt));
+            return;
+        }
+                
+        var avatarY = avatar.getAttribute('position').y;  
+        avatar.object3D.lookAt(new THREE.Vector3(0, avatarY, 0));
+
+        var radToDeg = THREE.Math.radToDeg;
+        var rotation = avatar.object3D.rotation;
+        rotation.y += Math.PI;
+        console.log(rotation)
+        avatar.setAttribute('rotation', {
+            x: radToDeg(rotation.x),
+            y: radToDeg(rotation.y),
+            z: radToDeg(rotation.z)
+        });
+        });
+        room.setAttribute('sharedspace', { room: roomName, hold: false });
+        }());
+      </script>
+  </body>
+</html>
