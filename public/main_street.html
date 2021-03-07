@@ -65,6 +65,18 @@
         <!-- /Templates -->
       </a-assets>
 
+      <a-entity position="0 .6 4">
+        <a-camera>
+            <a-entity id="mycursor" cursor="fuse: false; fuseTimeout: 500; max-distance: 30;"
+            position="0 0 -5"
+            geometry="primitive: ring"
+            material="color: blue; shader: flat">
+            </a-entity>
+        </a-camera>
+      </a-entity>
+
+      <a-box id="town-square-button" position="4 1 0"></a-box> 
+
       <a-entity id="player"
         networked="template:#avatar-template;attachTemplateToLocal:false;"
         camera
@@ -88,6 +100,12 @@
       <a-sky src="#sky" rotation="0 -90 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
     </a-scene>
+
+    <script>
+      document.querySelector('#town-square-button').addEventListener('click', function() {
+          window.location.href = "scenes/town-square.html"
+      });
+    </script>
 
     <!-- GitHub Corner. -->
     <a href="https://github.com/haydenjameslee/networked-aframe" class="github-corner">

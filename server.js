@@ -9,9 +9,7 @@ const port = process.env.PORT || 3000;
 // Set process name
 process.title = "networked-aframe-server";
 
-app.get('/login', (req, res) => {
-    res.send(req.query.user);
-});
+
 
 // Setup and configure Express http server.
 const app = express();
