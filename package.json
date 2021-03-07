@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "firebase": "^8.2.10",
     "ip": "^1.1.5",
     "networked-aframe": "^0.7.1",
     "nodemon": "^2.0.7"

@@ -2,6 +2,7 @@ const express = require('express');
 const ip = require('ip');
 const http = require("http"); // http server core module
 const path = require("path");
+const firebase = require('firebase');
 
 const port = process.env.PORT || 3000;
 
@@ -11,6 +12,21 @@ process.title = "networked-aframe-server";
 // Setup and configure Express http server.
 const app = express();
 app.use(express.static("public"));
+
+// Set the configuration for our app
+var config = {
+    apiKey: "AIzaSyAfopjXcnaZQd0L5wBKj9FvOwtuJZC2VB4",
+    authDomain: "openvr-306822.firebaseapp.com",
+  
+    
+    databaseURL: "https://openvr-306822-default-rtdb.firebaseio.com",
+    storageBucket: "openvr-306822.appspot.com"
+  };
+firebase.initializeApp(config);
+  
+  // Get a reference to the database service
+var database = firebase.database();
+
 
 // Serve the example and build the bundle in development.
 if (process.env.NODE_ENV === "development") {
