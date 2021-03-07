@@ -1,5 +1,7 @@
 # ready-player-2
 
+- a social media platform for the future. Best experienced in VR, users can interact with each other and make "physical" posts in a persistent world.
+
 ### future features
 - persistent world with posts, art, etc. left by your friends (or strangers)
 - each user has their own "profile room" that they can decorate as they choose
