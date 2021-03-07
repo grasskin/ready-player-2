@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OpenVR</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="css/login.css" rel="stylesheet">
@@ -10,26 +11,28 @@
 </head>
 
 <body>
-    <div class="row h-100 justify-content-center">
-        <div class="col-md-4 col-sm-12">
-            <div class="login-form">
-                <h1>OpenVR</h1>
-                <form>
-                    <div class="form-group">
-                        <label>User Name</label>
-                        <input type="text" class="form-control" id='username' placeholder="User Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                    <a href="main_street.html" id="enter" type="submit" class="btn btn-black">
-                        Login
-                    </a>
-                    <button type="submit" class="btn btn-secondary">Register</button>
-                    <hr />
-                    <p>For a sample login use <strong>test</strong> as the username and password.</p>
-                </form>
+    <div class="container">
+        <div class="row h-100 justify-content-center">
+            <div class="col-md-4">
+                <div class="login-form">
+                    <h1>OpenVR</h1>
+                    <form>
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" placeholder="User Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <a href="main_street.html" id="enter" type="submit" class="btn btn-black">
+                            Login
+                        </a>
+                        <button type="submit" class="btn btn-secondary">Register</button>
+                        <hr />
+                        <p>For a sample login use <strong>test</strong> as the username and password.</p>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
