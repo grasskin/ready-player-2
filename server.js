@@ -12,6 +12,10 @@ process.title = "networked-aframe-server";
 const app = express();
 app.use(express.static("public"));
 
+app.get('/login', (req, res) => {
+    res.send(req.query.user);
+});
+
 // Serve the example and build the bundle in development.
 if (process.env.NODE_ENV === "development") {
   const webpackMiddleware = require("webpack-dev-middleware");
