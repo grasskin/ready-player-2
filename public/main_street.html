@@ -83,15 +83,17 @@
 
     </a-scene>
     <script>
+        var int = setInterval(teleportToRoom, 100);
         function teleportToRoom () {
           var playerpos = document.querySelector("#player").getAttribute("position");
           var x = playerpos.x
           var z = playerpos.z
           if (z > 5 && z < 7 && x > -1 && x < 1) {
+            clearInterval(int)
             window.location.href = "scenes/room.html"
           }
         }
-        setInterval(teleportToRoom, 100);
+        
     </script>
     <script>
         // Define custom schema for syncing avatar color, set by random-color
