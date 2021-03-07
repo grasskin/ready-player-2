@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
     <script src="/js/spawn-in-circle.component.js"></script>
+    <script src="https://rawgit.com/caseyyee/aframe-ui-widgets/master/dist/aframe-ui-widgets.min.js"></script>
   </head>
   <body>
     <a-scene networked-scene="
@@ -65,6 +66,9 @@
         <!-- /Templates -->
       </a-assets>
 
+      <a-entity id="leftHand" hand-controls="left"></a-entity>
+      <a-entity id="rightHand" hand-controls="right"></a-entity>
+
       <a-entity position="0 .6 4">
         <a-camera>
             <a-entity id="mycursor" cursor="fuse: false; fuseTimeout: 500; max-distance: 30;"
@@ -74,8 +78,6 @@
             </a-entity>
         </a-camera>
       </a-entity>
-
-      <a-box id="town-square-button" position="4 1 0"></a-box> 
 
       <a-entity id="player"
         networked="template:#avatar-template;attachTemplateToLocal:false;"
@@ -96,13 +98,13 @@
 
       <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
       <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
-
+      <a-entity id="town-square-button" ui-button></a-entity>
       <a-sky src="#sky" rotation="0 -90 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
     </a-scene>
 
     <script>
-      document.querySelector('#town-square-button').addEventListener('click', function() {
+      document.querySelector('#town-square-button').addEventListener('pressed', function() {
           window.location.href = "scenes/town-square.html"
       });
     </script>
