@@ -67,15 +67,15 @@
 
       <!-- /Templates -->
     </a-assets>
-      <a-entity position="0 .6 4">
+
+      <a-entity hand-controls="left"></a-entity>
+        <a-entity hand-controls="right"></a-entity>
+
+        <!-- Can also be controlled used with cursor -->
         <a-camera>
-            <a-entity id="mycursor" cursor="fuse: false; fuseTimeout: 500; max-distance: 30;"
-            position="0 0 -5"
-            geometry="primitive: ring"
-            material="color: blue; shader: flat">
-            </a-entity>
+        <a-cursor></a-cursor>
         </a-camera>
-      </a-entity>
+        <a-entity position="0 2 0" id="mybutton" ui-button></a-entity>
       <a-entity environment="preset: forest; fog: 0; shadow: true; dressingAmount: 1000"></a-entity>
       <a-cylinder position="3 1.5 3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
       <a-cylinder position="-3 1.5 3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
@@ -88,7 +88,7 @@
       <a-cylinder position="0 0.1 0" radius="15" height="0.2" material="src:road-brick-1.jpg; repeat: 20 20"></a-cylinder>
     </a-scene>
     <script>
-      document.querySelector('#refresh-button').addEventListener('click', function() {
+      document.querySelector('#mybutton').addEventListener('click', function() {
           window.location.href = "./room.html"
       });
       document.querySelector('#main-street').addEventListener('click', function() {
