@@ -2,24 +2,15 @@ body {
     font-family: "Lato", sans-serif;
 }
 
-
-
 .main-head{
     height: 150px;
     background: #FFF;
    
 }
 
-.sidenav {
-    height: 100%;
-    background-color: #000;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
-
-.main {
-    padding: 0px 10px;
+.col-md-4 {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 @media screen and (max-height: 450px) {
@@ -35,29 +26,6 @@ body {
         margin-top: 10%;
     }
 }
-
-@media screen and (min-width: 768px){
-    .main{
-        margin-left: 40%; 
-    }
-
-    .sidenav{
-        width: 40%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-    }
-
-    .login-form{
-        margin-top: 80%;
-    }
-
-    .register-form{
-        margin-top: 20%;
-    }
-}
-
 
 .login-main-text{
     margin-top: 20%;
