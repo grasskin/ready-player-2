@@ -33,7 +33,20 @@
         <a-plane rotation="90 -90 0", position="0 7 0" scale="40 40 40"></a-plane>
         <!-- floor-->
         <a-plane rotation="-90 0 0", position="0 0 0" scale="40 40 40"></a-plane>
+
+        <a-sphere position="0 1 6" radius="0.5" color="#000000"></a-sphere>
     </a-scene>
+    <script>
+        function teleportToTown () {
+          var playerpos = document.querySelector("#player").getAttribute("position");
+          var x = playerpos.x
+          var z = playerpos.z
+          if (z > 5 && z < 7 && x > -1 && x < 1) {
+            window.location.href = "../main_street.html"
+          }
+        }
+        setInterval(teleportToTown, 100);
+    </script>
 
 </body>
 

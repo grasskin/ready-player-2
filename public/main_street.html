@@ -37,21 +37,31 @@
                     </a-entity>
                 </a-entity>
             </template>
+
             <!-- /Templates -->
         </a-assets>
+
         <a-entity hand-controls="left"></a-entity>
         <a-entity hand-controls="right"></a-entity>
+
         <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" camera
             position="0 1.6 0" spawn-in-circle="radius:3" wasd-controls look-controls>
             <a-sphere class="head" visible="false" random-color></a-sphere>
         </a-entity>
+
         <a-entity environment></a-entity>
-        <a-cylinder position="3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
-        <a-cylinder position="-3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
-        <a-cylinder position="3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
-        <a-cylinder position="-3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
+
+        <a-cylinder position="3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow>
+        </a-cylinder>
+        <a-cylinder position="-3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow>
+        </a-cylinder>
+        <a-cylinder position="3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow>
+        </a-cylinder>
+        <a-cylinder position="-3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow>
+        </a-cylinder>
         <a-cone position="0 4 0" height="2" radius-bottom="5" radius-top="0" src="scenes/img/canvas.jpg"></a-cone>
-        <a-torus position="0 3 0" radius="5" radius-tubular="0.05" rotation="90 0 0" src="scenes/img/wood.jpg"></a-torus>
+        <a-torus position="0 3 0" radius="5" radius-tubular="0.05" rotation="90 0 0" src="scenes/img/wood.jpg">
+        </a-torus>
         <a-curvedimage id="tweet" look-at="#camera" position="5 2 -5" height="1.0" radius="2.7" theta-length="72"
             rotation="0 100 0" scale="0.8 0.8 0.8" src="scenes/img/count.png"></a-curvedimage>
         <a-box id="main-street" position="-5 2 -5"></a-box>
@@ -59,19 +69,19 @@
             shadow></a-cylinder>
         <a-cylinder position="0 0.1 0" radius="15" height="0.2"
             material="src:scenes/img/road-brick-1.jpg; repeat: 20 20"></a-cylinder>
-        <a-entity id="room-button" ui-button position="0 1 -1" rotation="45 0 0"></a-entity>
-    </a-scene>
+        <a-sphere position="0 1 6" radius="0.5" color="#000000"></a-sphere>
 
+    </a-scene>
     <script>
-        document.querySelector('#room-button').addEventListener('pressed', function () {
-            window.location.href = "./room.html"
-        });
-        document.querySelector('#tweet').addEventListener('click', function () {
-            window.location.href = "./room.html"
-        });
-        document.querySelector('#main-street').addEventListener('click', function () {
-            window.location.href = "../main_street.html"
-        });
+        function teleportToRoom () {
+          var playerpos = document.querySelector("#player").getAttribute("position");
+          var x = playerpos.x
+          var z = playerpos.z
+          if (z > 5 && z < 7 && x > -1 && x < 1) {
+            window.location.href = "scenes/room.html"
+          }
+        }
+        setInterval(teleportToRoom, 100);
     </script>
     <script>
         // Define custom schema for syncing avatar color, set by random-color
