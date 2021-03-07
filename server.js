@@ -29,6 +29,28 @@ firebase.initializeApp(config);
   // Get a reference to the database service
 var database = firebase.database();
 
+//save a post with arbitrary identifier id, message:content and assoicated user:username
+function savePost(ID, content, username) {
+  firebase.database().ref('posts/' + ID).set({
+    content: content,
+    username: username
+  });
+}
+
+function deletePost(ID) {
+  firebase.database().ref('posts/' + ID).remove()
+}
+
+var newPost = firebase.database().ref('posts');
+newPost.on('value', (allPostsSnapshot) => {
+  allPostsSnapshot.forEach((postSnapshot) =>
+  {
+    //do something for each post "postSnapshot"
+    //access content and username fields as below
+    console.log(postSnapshot.child("content").val())
+    console.log(postSnapshot.child("username").val())
+  })
+});
 
 // Serve the example and build the bundle in development.
 if (process.env.NODE_ENV === "development") {
