@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <title>Hello, WebVR! • A-Frame</title>
-  <meta name="description" content="Hello, WebVR! • A-Frame">
+  <meta name="description" content="Town Square">
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
   <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
-  <script src="/build.js"></script>
+  <script src="../build.js"></script>
   <script>window.NAF || document.write('<script src="https://unpkg.com/networked-aframe/dist/networked-aframe.min.js">\x3C/script>')</script>
 
   <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
@@ -25,12 +25,6 @@
       adapter: socketio;
     ">
     <a-assets>
-
-      <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
-      <img id="sky" src="https://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
-
-      <!-- Templates -->
-
       <!-- Avatar -->
       <template id="avatar-template">
         <a-entity class="avatar">
@@ -57,22 +51,27 @@
       <a-cursor></a-cursor>
     </a-camera>
 
-    <a-entity environment="preset: forest; fog: 0; shadow: true; dressingAmount: 1000"></a-entity>
+    <a-entity environment></a-entity>
 
-    <a-cylinder position="3 1.5 3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
-    <a-cylinder position="-3 1.5 3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
-    <a-cylinder position="3 1.5 -3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
-    <a-cylinder position="-3 1.5 -3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
-    <a-cone position="0 4 0" height="2" radius-bottom="5" radius-top="0"></a-cone>
+    <a-cylinder position="3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="img/wood.jpg" shadow></a-cylinder>
+    <a-cylinder position="-3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="img/wood.jpg" shadow></a-cylinder>
+    <a-cylinder position="3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="img/wood.jpg" shadow></a-cylinder>
+    <a-cylinder position="-3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="img/wood.jpg" shadow></a-cylinder>
+    <a-cone position="0 4 0" height="2" radius-bottom="5" radius-top="0" src="img/canvas.jpg"></a-cone>
+    <a-torus position="0 3 0" radius="5" radius-tubular="0.05" rotation="90 0 0" src="img/wood.jpg"></a-torus>
     <a-curvedimage id="tweet" look-at="#camera" position="5 2 -5" height="1.0" radius="2.7" theta-length="72"
       rotation="0 100 0" scale="0.8 0.8 0.8" src="img/count.png"></a-curvedimage>
     <a-box id="main-street" position="-5 2 -5"></a-box>
-    <a-cylinder position="0 0.25 0" radius="2" height="0.5" depth="1" color="#694136" shadow></a-cylinder>
+    <a-cylinder position="0 0.25 0" radius="2" height="0.5" depth="1" color="#694136" src="img/bricks.jpg" shadow></a-cylinder>
     <a-cylinder position="0 0.1 0" radius="15" height="0.2" material="src:img/road-brick-1.jpg; repeat: 20 20"></a-cylinder>
-    <a-entity id="mybutton" ui-button position="0 2 -6" rotation="0 0 0"></a-entity>
+    <a-entity id="room-button" ui-button position="0 1 -1" rotation="45 0 0"></a-entity>
+    
   </a-scene>
   <script>
-    document.querySelector('#mybutton').addEventListener('presseda', function () {
+    document.querySelector('#room-button').addEventListener('pressed', function () {
+      window.location.href = "./room.html"
+    });
+    document.querySelector('#tweet').addEventListener('click', function () {
       window.location.href = "./room.html"
     });
     document.querySelector('#main-street').addEventListener('click', function () {
