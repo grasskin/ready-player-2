@@ -53,25 +53,25 @@
         </a-entity>
 
         <a-sky color="#ECECEC"></a-sky>
-        <a-obj-model src="models/scooter.obj" scale="0.035 0.035 0.035" color="gray" position="3 0 3"></a-obj-model>
+        <a-obj-model src="models/scooter.obj" scale="0.035 0.035 0.035" color="gray" position="3 0 3" shadow="cast: true"></a-obj-model>
         <a-obj-model src="models/heart.obj" mtl="models/heart.mtl" scale="0.1 0.1 0.1" position="2 1 0"
-            rotation="-90 0 0""></a-obj-model>
+            rotation="-90 0 0" shadow="cast: true"></a-obj-model>
 
         <a-obj-model src="models/chair.obj" scale="0.015 0.015 0.015" position="2 0 0" rotation="0 0 0"
-                color="black"></a-obj-model>
+                color="black" shadow="cast: true"></a-obj-model>
         <a-obj-model src="models/table.obj" scale="0.5 0.5 0.5" position="-4 -0.05 0" rotation="0 0 0"
-                color="red"></a-obj-model>
+                color="red" shadow="cast: true"></a-obj-model>
 
         <!-- walls -->
-        <a-plane id="wall0" rotation="0 180 0", position="0 5 10" scale="20 20 20" shadow></a-plane>
-        <a-plane id="wall2" rotation="0 90 0", position="-10 5 0" scale="20 20 20"></a-plane>
-        <a-plane id="wall3" rotation="0 0 0", position="0 5 -10" scale="20 20 20"></a-plane>
-        <a-plane id="wall4" rotation="0 -90 0", position="10 5 0" scale="20 20 20"></a-plane>
+        <a-plane id="wall0" rotation="0 180 0", position="0 5 10" scale="20 20 20" color="#9fd4ff"></a-plane>
+        <a-plane id="wall2" rotation="0 90 0", position="-10 5 0" scale="20 20 20" color="#9fd4ff"></a-plane>
+        <a-plane id="wall3" rotation="0 0 0", position="0 5 -10" scale="20 20 20" color="#9fd4ff"></a-plane>
+        <a-plane id="wall4" rotation="0 -90 0", position="10 5 0" scale="20 20 20" color="#9fd4ff"></a-plane>
 
         <!-- ceiling-->
         <a-plane rotation="90 -90 0", position="0 7 0" scale="40 40 40"></a-plane>
         <!-- floor-->
-        <a-plane rotation="-90 0 0", position="0 0 0" scale="40 40 40"></a-plane>
+        <a-plane rotation="-90 0 0", position="0 0 0" scale="40 40 40" color="#7670be" shadow="recieve: true"></a-plane>
 
         <a-sphere position="0 1 6" radius="0.5" color="#000000"></a-sphere>
     </a-scene>

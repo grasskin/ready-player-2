@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <a-scene background="color: #ECECEC" networked-scene="
+    <a-scene shadow background="color: #ECECEC" networked-scene="
       room: dev;
       debug: true;
       adapter: socketio;
@@ -39,7 +39,6 @@
 
             <!-- /Templates -->
         </a-assets>
-
         <!-- Controls -->
         <a-entity hand-controls="left"></a-entity>
         <a-entity hand-controls="right"></a-entity>
@@ -54,18 +53,18 @@
         </a-entity>
 
         <!-- Patio -->
-        <a-cylinder position="3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
-        <a-cylinder position="-3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
-        <a-cylinder position="3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
-        <a-cylinder position="-3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
-        <a-cone position="0 4 0" height="2" radius-bottom="5" radius-top="0" src="scenes/img/canvas.jpg"></a-cone>
-        <a-torus position="0 3 0" radius="5" radius-tubular="0.05" rotation="90 0 0" src="scenes/img/wood.jpg"></a-torus>
+        <a-cylinder position="3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow="cast: true"></a-cylinder>
+        <a-cylinder position="-3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow="cast: true"></a-cylinder>
+        <a-cylinder position="3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow="cast: true"></a-cylinder>
+        <a-cylinder position="-3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow="cast: true"></a-cylinder>
+        <a-cone position="0 4 0" height="2" radius-bottom="5" radius-top="0" src="scenes/img/canvas.jpg" shadow="cast: true"></a-cone>
+        <a-torus position="0 3 0" radius="5" radius-tubular="0.05" rotation="90 0 0" src="scenes/img/wood.jpg" shadow="cast: true"></a-torus>
 
         <!-- Floor -->
         <a-cylinder position="0 0.25 0" radius="2" height="0.5" depth="1" color="#694136" src="scenes/img/bricks.jpg"
-            shadow></a-cylinder>
+            shadow></a-cylinder shadow="recieve: true">
         <a-cylinder position="0 0.1 0" radius="15" height="0.2"
-            material="src:scenes/img/road-brick-1.jpg; repeat: 20 20"></a-cylinder>
+            material="src:scenes/img/road-brick-1.jpg; repeat: 20 20" shadow="recieve: true"></a-cylinder>
         <a-sphere position="0 1 6" radius="0.5" color="#000000"></a-sphere>
 
         <a-entity id="room-button" ui-button position="0 1 -1" rotation="45 0 0"></a-entity>
