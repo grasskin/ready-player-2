@@ -6,7 +6,6 @@
     <title>OpenVR</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
-    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
     <script>
         window.NAF || document.write(
@@ -41,19 +40,17 @@
         </a-assets>
         <a-entity hand-controls="left"></a-entity>
         <a-entity hand-controls="right"></a-entity>
+        <a-entity environment="preset: forest"></a-entity>
         <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" camera
             position="0 1.6 0" spawn-in-circle="radius:3" wasd-controls look-controls>
             <a-sphere class="head" visible="false" random-color></a-sphere>
         </a-entity>
-        <a-entity environment></a-entity>
         <a-cylinder position="3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
         <a-cylinder position="-3 1.5 3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
         <a-cylinder position="3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
         <a-cylinder position="-3 1.5 -3" radius="0.3" height="3" color="#FFC65D" src="scenes/img/wood.jpg" shadow></a-cylinder>
         <a-cone position="0 4 0" height="2" radius-bottom="5" radius-top="0" src="scenes/img/canvas.jpg"></a-cone>
         <a-torus position="0 3 0" radius="5" radius-tubular="0.05" rotation="90 0 0" src="scenes/img/wood.jpg"></a-torus>
-        <a-curvedimage id="tweet" look-at="#camera" position="5 2 -5" height="1.0" radius="2.7" theta-length="72"
-            rotation="0 100 0" scale="0.8 0.8 0.8" src="scenes/img/count.png"></a-curvedimage>
         <a-box id="main-street" position="-5 2 -5"></a-box>
         <a-cylinder position="0 0.25 0" radius="2" height="0.5" depth="1" color="#694136" src="scenes/img/bricks.jpg"
             shadow></a-cylinder>
