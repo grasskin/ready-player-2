@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, WebVR! • A-Frame</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC"
+    networked-scene="
+      room: dev;
+      debug: true;
+      adapter: socketio;
+    ">
+      <a-entity position="0 .6 4">
+        <a-camera>
+            <a-entity id="mycursor" cursor="fuse: false; fuseTimeout: 500; max-distance: 30;"
+            position="0 0 -5"
+            
+            material="color: blue; shader: flat">
+            </a-entity>
+        </a-camera>
+      </a-entity>
+      <a-entity environment="preset: forest; fog: 0; shadow: true; dressingAmount: 1000"></a-entity>
+      <a-cylinder position="3 1.5 3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
+      <a-cylinder position="-3 1.5 3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
+      <a-cylinder position="3 1.5 -3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
+      <a-cylinder position="-3 1.5 -3" radius="0.1" height="3" color="#FFC65D" shadow></a-cylinder>
+      <a-cone position="0 4 0" height="2" radius-bottom="5" radius-top="0"></a-cone>
+      <a-curvedimage id="refresh-button" look-at="#camera" position="5 2 -5" height="1.0" radius="2.7" theta-length="72"rotation="0 100 0" scale="0.8 0.8 0.8" src="count.png"></a-curvedimage>      <a-cylinder id="room1ID" position="0 0.25 0" radius="2" height="0.5" depth="1" color="#694136" shadow></a-cylinder>
+      <a-cylinder position="0 0.1 0" radius="15" height="0.2" material="src:road-brick-1.jpg; repeat: 20 20"></a-cylinder>
+    </a-scene>
+    <script>
+      document.querySelector('#refresh-button').addEventListener('click', function() {
+          window.location.href = "./room.html"
+      });
+    </script>
+  </body>
+</html>
