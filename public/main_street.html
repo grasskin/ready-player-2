@@ -66,9 +66,18 @@
             shadow></a-cylinder>
         <a-cylinder position="0 0.1 0" radius="15" height="0.2"
             material="src:scenes/img/road-brick-1.jpg; repeat: 20 20"></a-cylinder>
-        <a-sphere position="0 1 6" radius="0.5" color="#000000"></a-sphere>
 
-        <a-entity id="room-button" ui-button position="0 1 -1" rotation="45 0 0"></a-entity>
+        <!-- Portal -->
+        <a-entity
+            text="
+                value: Your Room;
+                align: center;
+                color: #a3edff
+            "
+            position="4.5 1.5 0"
+            scale="3 3 3"
+            rotation="0 -90 0"></a-entity>
+        <a-sphere position="5 1.5 0" radius="0.5" color="#32abc9"></a-sphere>
 
         <!-- Text -->
         <a-entity 
@@ -81,18 +90,18 @@
             position="0 1.5 -1.5"></a-entity>
     </a-scene>
 
-    </a-scene>
     <script>
         function teleportToRoom () {
           var playerpos = document.querySelector("#player").getAttribute("position");
           var x = playerpos.x
           var z = playerpos.z
-          if (z > 5 && z < 7 && x > -1 && x < 1) {
+          if (z > -1 && z < 1 && x > 4 && x < 6) {
             window.location.href = "scenes/room.html"
           }
         }
         setInterval(teleportToRoom, 100);
     </script>
+
     <script>
         // Define custom schema for syncing avatar color, set by random-color
         NAF.schemas.add({
