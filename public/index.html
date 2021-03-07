@@ -17,7 +17,7 @@
                 <form>
                     <div class="form-group">
                         <label>User Name</label>
-                        <input type="text" class="form-control" placeholder="User Name">
+                        <input type="text" class="form-control" id='username' placeholder="User Name">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
@@ -33,6 +33,9 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#enter').click(function(){ document.cookie = $('#username').val()})
+    </script>
 </body>
 
 </html>
