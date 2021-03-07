@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title>Hello, World! - A-Frame</title>
-    <meta name="description" content="Hello, World! - A-Frame">
+    <title>OpenVR</title>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+</head>
 
-  </head>
-  <body>
-    
+<body>
     <a-scene id="scene">
-      <a-sphere position="2 4 4" radius="0.1" color="#EF2D5E"></a-sphere>
-      <!-- <a-light type="ambient" color="#FF0000"></a-light> -->
-      <!-- <a-light type="point" intensity="2" position="2 4 4"></a-light> -->
-      
-      <a-sky color="#ECECEC"></a-sky>
-      <a-box src="building.jpg" position="0 2 10" rotation="45 45 0" scale="1 3 1" shadow></a-box>    
+        <a-sphere position="2 4 4" radius="0.1" color="#EF2D5E"></a-sphere>
+        <!-- <a-light type="ambient" color="#FF0000"></a-light> -->
+        <!-- <a-light type="point" intensity="2" position="2 4 4"></a-light> -->
 
+        <a-sky color="#ECECEC"></a-sky>
+        <a-obj-model src="models/scooter.obj" scale="0.035 0.035 0.035" color="gray" position="3 0 3"></a-obj-model>
+        <a-obj-model src="models/heart.obj" mtl="models/heart.mtl" scale="0.1 0.1 0.1" position="2 1 0"
+            rotation="-90 0 0""></a-obj-model>
 
-      <a-obj-model src="models/scooter.obj" scale = "0.035 0.035 0.035" color="gray" position="3 0 3"></a-obj-model>
+        <a-obj-model src="models/chair.obj" scale="0.015 0.015 0.015" position="2 0 0" rotation="0 0 0"
+                color="black"></a-obj-model>
+        <a-obj-model src="models/table.obj" scale="0.5 0.5 0.5" position="-4 -0.05 0" rotation="0 0 0"
+                color="red"></a-obj-model>
 
-      <a-obj-model src="models/heart.obj" mtl="models/heart.mtl" scale="0.1 0.1 0.1" position="0 1 0" rotation="-90 0 0""></a-obj-model>
-      <a-sphere position="0.5 2.25 0.3" radius="0.25" color="white"></a-sphere>
-      <a-sphere position="-0.5 2.25 0.3" radius="0.25" color="white"></a-sphere>
+        <!-- walls -->
+        <a-plane id="wall0" rotation="0 180 0", position="0 5 10" scale="20 20 20" shadow></a-plane>
+        <a-plane id="wall2" rotation="0 90 0", position="-10 5 0" scale="20 20 20"></a-plane>
+        <a-plane id="wall3" rotation="0 0 0", position="0 5 -10" scale="20 20 20"></a-plane>
+        <a-plane id="wall4" rotation="0 -90 0", position="10 5 0" scale="20 20 20"></a-plane>
 
-      <a-sphere position="0.5 2.25 0.55" radius="0.05" color="black"></a-sphere>
-      <a-sphere position="-0.5 2.25 0.55" radius="0.05" color="black"></a-sphere>
-
-
-      <a-obj-model src="models/chair.obj" scale="0.015 0.015 0.015" position="2 0 0" rotation="0 0 0" color="black"></a-obj-model>
-      <a-obj-model src="models/table.obj" scale="0.5 0.5 0.5" position="-4 -0.05 0" rotation="0 0 0" color="black"></a-obj-model>
-
-
-
-      <!-- walls -->
-      <a-plane id="wall0" rotation="0 180 0" src="building.jpg", position="0 10 20" scale="40 40 40" shadow></a-plane>
-      <a-plane id="wall2" rotation="0 90 0" src="building.jpg", position="-20 10 0" scale="40 40 40"></a-plane>
-      <a-plane id="wall3" rotation="0 0 0", src="building.jpg", position="0 10 -20" scale="40 40 40"></a-plane>
-      <a-plane id="wall4" rotation="0 -90 0", src="building.jpg", position="20 10 0" scale="40 40 40"></a-plane>
-
-      <!-- ceiling-->
-      <a-plane rotation="90 -90 0", src="building.jpg", position="0 15 0" scale="40 40 40"></a-plane>
-      <!-- floor-->
-      <a-plane rotation="-90 0 0", src="building.jpg", position="0 0 0" scale="40 40 40"></a-plane>
+        <!-- ceiling-->
+        <a-plane rotation="90 -90 0", position="0 7 0" scale="40 40 40"></a-plane>
+        <!-- floor-->
+        <a-plane rotation="-90 0 0", position="0 0 0" scale="40 40 40"></a-plane>
     </a-scene>
 
-  </body>
+</body>
 
 
 </html>
