@@ -83,7 +83,7 @@
         <a-entity 
             animation="property: scale; to: 2 2 2; dir: alternate;"
             text="
-                value: Welcome, to\nOpenVR;
+                value: Welcome to\nOpenVR!;
                 font: mozillavr;
                 align: center;
             "
@@ -91,6 +91,7 @@
     </a-scene>
 
     <script>
+        var int = setInterval(teleportToRoom, 100);
         function teleportToRoom () {
           var playerpos = document.querySelector("#player").getAttribute("position");
           var x = playerpos.x
@@ -99,7 +100,7 @@
             window.location.href = "scenes/room.html"
           }
         }
-        setInterval(teleportToRoom, 100);
+        
     </script>
 
     <script>

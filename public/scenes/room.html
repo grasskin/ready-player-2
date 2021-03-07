@@ -76,15 +76,17 @@
         <a-sphere position="0 1 6" radius="0.5" color="#000000"></a-sphere>
     </a-scene>
     <script>
+        var int = setInterval(teleportToTown, 100);
         function teleportToTown () {
           var playerpos = document.querySelector("#player").getAttribute("position");
           var x = playerpos.x
           var z = playerpos.z
           if (z > 5 && z < 7 && x > -1 && x < 1) {
+            clearInterval(int)
             window.location.href = "../main_street.html"
           }
         }
-        setInterval(teleportToTown, 100);
+        
     </script>
     <script>
         // Define custom schema for syncing avatar color, set by random-color
